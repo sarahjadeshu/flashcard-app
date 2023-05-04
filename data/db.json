@@ -1,0 +1,39 @@
+{
+  "decks": [
+    {
+      "name": "derm",
+      "description": "derm",
+      "id": 1
+    },
+    {
+      "name": "asd",
+      "description": "asd",
+      "id": 2
+    },
+    {
+      "name": "asd",
+      "description": "asd",
+      "id": 3
+    }
+  ],
+  "cards": [
+    {
+      "front": "asd",
+      "back": "asd",
+      "deckId": 1,
+      "id": 1
+    },
+    {
+      "front": "asd",
+      "back": "asd",
+      "deckId": 1,
+      "id": 2
+    },
+    {
+      "front": "asd",
+      "back": "asd",
+      "deckId": 1,
+      "id": 3
+    }
+  ]
+}
