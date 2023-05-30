@@ -72,8 +72,12 @@ function EditCard() {
           </li>
           <li className="breadcrumb-item active">Edit Card {cardId - 1}</li>
         </ol>
-        <CardForm card={card}/>
-        
+        <CardForm
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          card={card}
+        />
+
         <button
           className="btn btn-secondary mx-1"
           onClick={() => handleCancel()}
