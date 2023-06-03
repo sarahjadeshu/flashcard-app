@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { readDeck, readCard, updateCard } from "../utils/api/index";
+import { readDeck, createCard } from "../utils/api/index";
 import { Link, useHistory, useParams } from "react-router-dom";
 import CardForm from "./CardForm";
 
@@ -60,10 +60,12 @@ function AddCard() {
       </ol>
       <h2>{deck.name}: Add Card</h2>
       <CardForm
-        handleSubmit={handleSubmit}
         handleChange={handleChange}
+        handleSubmit={handleSubmit}
         newCard={newCard}
       />
+
+
 
       <button className="btn btn-secondary mx-1" onClick={() => handleDone()}>
         Done

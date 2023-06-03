@@ -77,7 +77,7 @@ function EditDeck () {
                     <button type="button" value="Cancel" className="btn btn-secondary btn-lg" onClick={() => history.push("/")}>
                         Cancel
                     </button>
-                    <button teype="submit" value="Submit" className="btn btn-primary btn-lg">Submit</button>
+                    <button type="submit" value="Submit" className="btn btn-primary btn-lg">Submit</button>
                 </form>
             </div>
         </div>

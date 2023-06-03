@@ -32,7 +32,7 @@ function CardForm({ card, newCard, handleSubmit, handleChange }) {
   } else if (newCard) {
     return (
       <form onSubmit={handleSubmit}>
-        <h2>Edit Card</h2>
+        <h2>Add Card</h2>
         <div className="form-group">
           <label>Front</label>
           <textarea
@@ -55,6 +55,10 @@ function CardForm({ card, newCard, handleSubmit, handleChange }) {
             value={newCard.back}
           />
         </div>
+
+        <button className="btn btn-primary mx-1" type="submit">
+          Save
+        </button>
       </form>
     );
   }
