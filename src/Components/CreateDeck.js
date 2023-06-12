@@ -16,13 +16,13 @@ function CreateDeck() {
   const handleChange = (event) => {
     setOneDeck({
       ...oneDeck,
-      [event.target.name]: event.target.value,
+      [target.name]: target.value,
     });
   };
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = createDeck({...oneDeck});
+    const response = await createDeck({...oneDeck});
     setOneDeck(response)
     setOneDeck({
       name: "",
@@ -72,11 +72,16 @@ function CreateDeck() {
           ></textarea>
         </div>
         <row>
-          <Link to="/" className="btn btn-secondary">
-            Cancel
-          </Link>
+            <button
+              type="button"
+              value="Cancel"
+              className="btn btn-secondary btn-lg"
+              onClick={() => history.push("/")}
+            >
+              Cancel
+            </button>
           {/* Change button to Link to Deck component */}
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" value="Submit" className="btn btn-primary">
             Submit
           </button>
         </row>
