@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { readDeck, createCard } from "../utils/api/index";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { createCard, readDeck } from "../../utils/api/index";
 import CardForm from "./CardForm";
 
 function AddCard() {
-  const history = useHistory();
   const { deckId } = useParams();
+  const history = useHistory();
 
   const initialState = {
     front: "",
@@ -19,7 +19,6 @@ function AddCard() {
     async function fetchData() {
       try {
         const response = await readDeck(deckId);
-
         setDeck(response);
       } catch (error) {
         console.error("Something went wrong", error);
@@ -64,9 +63,6 @@ function AddCard() {
         handleSubmit={handleSubmit}
         newCard={newCard}
       />
-
-
-
       <button className="btn btn-secondary mx-1" onClick={() => handleDone()}>
         Done
       </button>

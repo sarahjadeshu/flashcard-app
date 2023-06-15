@@ -1,61 +1,58 @@
 import React from "react";
-import {
-  Link,
-  Route,
-  Switch
-} from "react-router-dom";
 import Header from "./Header";
-import NotFound from "../Components/NotFound";
-import CreateDeck from "../Components/CreateDeck";
-import Deck from "../Components/Deck";
-import DeckList from "../Components/DeckList";
-import StudyDeck from "../Components/StudyDeck";
-import EditDeck from "../Components/EditDeck";
-import Card from "../Components/Card";
+import NotFound from "./NotFound";
+import {Switch, Route} from "react-router-dom";
+import CreateDeckButton from "../Components/Deck/CreateDeckButton";
+import DeckList from "../Components/Deck/DeckList";
+import DeckForm from "../Components/Deck/DeckForm";
+import EditDeck from "../Components/Deck/EditDeck";
+import SingleDeck from "../Components/Deck/SingleDeck";
+import StudyDeck from "../Components/Deck/StudyDeck";
+import Card from "../Components/Card/Card";
+
 
 function Layout() {
   return (
     <>
-      <Header />
-      <div className="container">
-        {/* TODO: Implement the screen starting here */}
+      <div>
+        <Header />
+        <div className="container">
+          {/* TODO: Implement the screen starting here */}
+          <Switch>
+            <Route exact path="/">
+              <CreateDeckButton />
+              <DeckList />
+            </Route>
 
-        <Switch>
-          <Route exact path="/">
-            <Link to="/decks/new" class="btn btn-secondary btn-lg">
-              + Create Deck
-            </Link>
-            <DeckList />
-          </Route>
+            <Route path="/decks/new">
+              <DeckForm />
+            </Route>
 
-          <Route path="/decks/new">
-            <CreateDeck />
-          </Route>
+            <Route path="/decks/:deckId/edit">
+              <EditDeck />
+            </Route>
 
-          <Route path="/decks/:deckId/edit">
-            <EditDeck />
-          </Route>
+            <Route path="/decks/:deckId/study">
+              <StudyDeck />
+            </Route>
 
-          <Route path="/decks/:deckId/study">
-            <StudyDeck />
-          </Route>
+            <Route exact path="/decks/:deckId">
+              <SingleDeck />
+            </Route>
 
-          <Route exact path="/decks/:deckId">
-            <Deck />
-          </Route>
+            <Route path="/decks/:deckId/cards/new">
+              <Card />
+            </Route>
 
-          <Route path="/decks/:deckId/cards/new">
-            <Card />
-          </Route>
+            <Route path="/decks/:deckId/cards/:cardId/edit">
+              <Card />
+            </Route>
 
-          <Route path="/decks/:deckId/cards/:cardId/edit">
-            <Card />
-          </Route>
-
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </>
   );

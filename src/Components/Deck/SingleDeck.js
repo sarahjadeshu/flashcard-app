@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {
-  Link,
-  useParams,
-  useHistory
-} from "react-router-dom";
-import { readDeck, deleteDeck, deleteCard } from "../utils/api/index";
+import { deleteDeck, readDeck, deleteCard } from "../../utils/api/index";
+import { Link, useHistory, useParams } from "react-router-dom";
 
-function Deck() {
+function SingleDeck() {
   const history = useHistory();
   const { deckId } = useParams();
   const [deck, setDeck] = useState({});
@@ -17,15 +13,15 @@ function Deck() {
   }
 
   async function handleEditCard(card) {
-    history.push(`/decks/${deckId}/cards/${card.id}/edit`);
+    history.push(`/decks/${deckId}/cards/${card.id}/edit`)
   }
 
   async function handleEditDeck() {
-    history.push(`/decks/${deckId}/edit`);
+    history.push(`/decks/${deckId}/edit`)
   }
 
   async function handleStudyDeck() {
-    history.push(`/decks/${deckId}/study`);
+    history.push(`/decks/${deckId}/study`)
   }
 
   useEffect(() => {
@@ -33,7 +29,7 @@ function Deck() {
       const fetch = await readDeck(deckId);
       console.log(fetch);
       setDeck(fetch);
-      setCards(fetch.cards);
+      setCards(fetch.cards)
     }
     getDeck();
   }, []);
@@ -51,14 +47,16 @@ function Deck() {
     if (
       window.confirm("Delete this card? You will not be able to recover it")
     ) {
+
       try {
         history.go(0);
         return await deleteCard(card.id);
-      } catch (error) {
+      } catch(error) {
         console.error("Something went wrong", error);
       }
     }
   }
+
 
   return (
     <div>
@@ -139,7 +137,8 @@ function Deck() {
       </div>
     </div>
   );
+
+
 }
 
-
-export default Deck;
+export default SingleDeck;
